@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "commonjs",
+      "outDir": "./dist", // Directorio de salida para los archivos compilados
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true
+    },
+    "include": [
+      "src/**/*.ts" // Ruta donde se encuentran los archivos TypeScript
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
+  
