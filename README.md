@@ -35,6 +35,14 @@ El proyecto utiliza AWS Lambda y Redis para su funcionamiento. Para desplegarlo 
 4. Utiliza `serverless deploy` para desplegar el proyecto en AWS Lambda.
 5. Consulta y prueba las funciones con Postman o herramientas similares.
 
+## URL Lambdas
+endpoints:
+  POST - https://yzfzi72kic.execute-api.us-east-1.amazonaws.com/dev/createToken
+  GET - https://yzfzi72kic.execute-api.us-east-1.amazonaws.com/dev/getCardData
+functions:
+  createToken: my-lambda-service-dev-createToken (17 MB)
+  getCardData: my-lambda-service-dev-getCardData (17 MB)
+
 ## Notas
 
 - Asegúrate de contar con las credenciales de AWS y la configuración de Redis para un funcionamiento correcto.
