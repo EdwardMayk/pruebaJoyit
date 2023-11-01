@@ -1,6 +1,13 @@
 import { promisify } from 'util';
 import { createClient } from 'redis';
 
+interface CardData {
+  cardNumber: number;
+  expirationMonth: string;
+  expirationYear: string;
+  email: string;
+}
+
 const client = createClient()
 
 client.connect();
@@ -13,21 +20,11 @@ client.connect();
 //   console.error('Error de conexión a Redis:', err);
 // });
 
-
-
 export function storeDataInRedis(token: string, cardData: object): void {
   client.setEx(token, 900, JSON.stringify(cardData));
 }
 
-//retrieveCardDataFromDB
 const getAsync = promisify(client.get).bind(client);
-
-interface CardData {
-  cardNumber: number;
-  expirationMonth: string;
-  expirationYear: string;
-  email: string;
-}
 
 export function retrieveCardDataFromDB(token: string): Promise<CardData| null > {
   return getAsync(token)

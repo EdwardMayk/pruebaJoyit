@@ -14,7 +14,7 @@ function generateToken(): string {
   return prefix + token;
 }
 
-export function createToken(
+ export function createToken(
   cardNumber: number,
   cvv: number,
   expirationMonth: string,
@@ -27,7 +27,6 @@ export function createToken(
 
   console.log('Datos de entrada válidos');
 
-  const prefix = 'pk_test_';
   const token = generateToken();
   
   const cardData = { cardNumber, cvv, expirationMonth, expirationYear, email };

@@ -1,0 +1,24 @@
+service: my-lambda-service
+
+plugins:
+  - serverless-offline
+  
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  createToken:
+    handler: dist/functions/createToken.createToken
+    events:
+      - http:
+          path: createToken
+          method: post
+
+  getCardData:
+    handler: dist/functions/getCardData.handler
+    events:
+      - http:
+          path: getCardData
+          method: get
