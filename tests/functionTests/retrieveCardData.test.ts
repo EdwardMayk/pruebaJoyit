@@ -5,7 +5,7 @@ jest.mock('../../src/db/redis/redisConnect');
 
 describe('getCardData function', () => {
   it('should return card data when a valid token is provided', async () => {
-    const validToken = 'pk_test_1234567890'; // Un token válido en la base de datos
+    const validToken = 'pk_test_1234567890'; 
     console.log('validToken: ', validToken);
     const expectedCardData = {
       cardNumber: 1234567890123456,
@@ -20,7 +20,7 @@ describe('getCardData function', () => {
   });
 
   it('should return "Token no válido" for an invalid token', async () => {
-    const invalidToken = 'invalid_token'; // Un token inválido
+    const invalidToken = 'invalid_token'; 
 
     jest.spyOn(retrieveCardDataFromDB, 'retrieveCardDataFromDB').mockResolvedValue(null);
     
@@ -29,7 +29,7 @@ describe('getCardData function', () => {
   });
 
   it('should return "Los datos de la tarjeta ya no están presentes o han expirado" if no card data is found', async () => {
-    const expiredToken = 'pk_test_zNlu9dezIdYHDnkA'; // Un token que ha expirado o ya no está presente
+    const expiredToken = 'pk_test_zNlu9dezIdYHDnkA'; 
 
     jest.spyOn(retrieveCardDataFromDB, 'retrieveCardDataFromDB').mockResolvedValue(null);
 
