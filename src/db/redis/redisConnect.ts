@@ -24,10 +24,11 @@ export function storeDataInRedis(token: string, cardData: object): void {
   client.setEx(token, 900, JSON.stringify(cardData));
 }
 
-const getAsync = promisify(client.get).bind(client);
 
-export function retrieveCardDataFromDB(token: string): Promise<CardData| null > {
-  return getAsync(token)
+export function retrieveCardDataFromDB(token: string): Promise<CardData | null> {
+  console.log('Token recibidoDB:', token);
+  
+  return client.get(token)
     .then((data: string | null) => {
       if (data) {
         return JSON.parse(data) as CardData;
@@ -36,6 +37,8 @@ export function retrieveCardDataFromDB(token: string): Promise<CardData| null > 
       }
     })
     .catch((err: any) => {
-      throw new Error(err);
+      console.error('Error al buscar en Redis:', err);
+      throw new Error('Error al buscar en Redis');
     });
 }
+

@@ -25,8 +25,6 @@ function generateToken(): string {
     throw new Error('Datos de entrada no válidos');
   }
 
-  console.log('Datos de entrada válidos');
-
   const token = generateToken();
   
   const cardData = { cardNumber, cvv, expirationMonth, expirationYear, email };

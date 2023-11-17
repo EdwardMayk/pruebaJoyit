@@ -5,6 +5,9 @@ export function validateInputData(cardNumber: number, cvv: number, expirationMon
     const isExpirationYearValid = isValidExpirationYear(expirationYear);
     const isEmailValid = isValidEmail(email);
 
+    console.log('Datos de entrada válidos:', isCardNumberValid && isCVVValid && isExpirationMonthValid && isExpirationYearValid && isEmailValid);
+
+
     return isCardNumberValid && isCVVValid && isExpirationMonthValid && isExpirationYearValid && isEmailValid;
 }
 
@@ -18,7 +21,7 @@ function isValidCardNumber(cardNumber: number): boolean {
     }
 
     if (!isLuhnValid) {
-        console.log('Número de tarjeta inválido por el algoritmo de Luhn.');
+        console.log('Número de tarjeta inválido por el algoritmo de Luhn:', cardNumberStr);
     }
 
     return isLengthValid && isLuhnValid;
@@ -44,7 +47,8 @@ function validateLuhnAlgorithm(cardNumberStr: string): boolean {
     }
   
     return sum % 10 === 0;
-  }
+}
+
 
 function isValidCVV(cvv: number): boolean {
     const cvvStr = cvv.toString();
@@ -66,5 +70,6 @@ function isValidExpirationYear(expirationYear: string): boolean {
 }
 
 function isValidEmail(email: string): boolean {
-    return /^[^\s@]+@[^\s@]+\.(gmail\.com|hotmail\.com|yahoo\.es)$/.test(email);
+    console.log('Email válido:', /^\S+@\S+\.\w+$/.test(email));
+    return /^\S+@\S+\.\w+$/.test(email);
 }
