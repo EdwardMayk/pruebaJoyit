@@ -31,9 +31,12 @@ El proyecto utiliza AWS Lambda y Redis para su funcionamiento. Para desplegarlo 
 
 1. Clona este repositorio.
 2. Ejecuta `npm install` para instalar las dependencias.
-3. Ejecuta `npm run test` para ejecutar los tests correctamente.
-4. Utiliza `serverless deploy` para desplegar el proyecto en AWS Lambda.
-5. Consulta y prueba las funciones con Postman o herramientas similares.
+3. Ejecuta `docker-compose up` para inicializar la base de datos con Redis
+5. Ejecuta `npm run build` para compilar typescript.
+6. Ejecuta `npm run start` para correr el backend.
+7. Ejecuta `npm run test` para ejecutar los tests correctamente.
+8. Utiliza `serverless deploy` para desplegar el proyecto en AWS Lambda.
+9. Consulta y prueba las funciones con Postman o herramientas similares.
 
 ## URL Lambdas
 endpoints:
